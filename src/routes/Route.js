@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 export default function RouteWrapper({
   component: Component,
-  isPrivate = false,
+  isPrivate,
   ...rest
 }) {
   const signed = false;
@@ -19,3 +19,13 @@ export default function RouteWrapper({
 
   return <Route {...rest} component={Component} />;
 }
+
+RouteWrapper.propTypes = {
+  isPrivate: PropTypes.bool,
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
+};
+
+RouteWrapper.defaultProps = {
+  isPrivate: false,
+};
