@@ -19,7 +19,6 @@ export default function SignIn() {
   const dispatch = useDispatch();
 
   function handleSubmit({ email, password }) {
-    console.tron.log('brasil');
     dispatch(signInRequest(email, password));
   }
 
