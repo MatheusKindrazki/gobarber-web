@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-use-before-define */
 import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 import api from '~/services/api';
@@ -20,14 +22,14 @@ export default function AvatarInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+  }, [ref]);
 
   async function handleChange(e) {
     const data = new FormData();
 
     data.append('file', e.target.files[0]);
 
-    const response = await api.post('files', data);
+    const response = await api.post('file', data);
 
     const { id, url } = response.data;
 
